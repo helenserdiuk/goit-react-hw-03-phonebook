@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import style from './contactForm.module.css';
+import { useMemo } from 'react';
 
 export default class ContactForm extends Component {
   state = {
@@ -9,8 +10,8 @@ export default class ContactForm extends Component {
     number: '',
   };
 
-  nameInputId = nanoid();
-  numberInputId = nanoid();
+  nameInputId = useMemo(() => nanoid(), []);
+  numberInputId = useMemo(() => nanoid(), []);
 
   handleChange = e => {
     const { name, value } = e.currentTarget;
